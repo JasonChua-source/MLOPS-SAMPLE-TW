@@ -10,7 +10,7 @@ namespace AspNetCoreWebServiceTest.Controllers
         {
             HelloController controller = new HelloController();
             var response = controller.Get().Value as Response;
-            Assert.Equal("Hello World!", response.Output);
+            Assert.Equal("Hello World!!", response.output);
         }
 
         [Theory]
@@ -21,14 +21,14 @@ namespace AspNetCoreWebServiceTest.Controllers
         {
             HelloController controller = new HelloController();
             var response = controller.Get(inputValue).Value as Response;
-            Assert.Equal(expectedOutput, response.Output);
+            Assert.Equal(expectedOutput, response.output);
         }
 
         [Fact]
-        public void NoInputParamGetResponseTest()
+        public void NoInputParamPostResponseTest()
         {
             HelloController controller = new HelloController();
-            var response = controller.Get().Value as Response;
+            var response = controller.Post().Value as Response;
             Assert.Equal("Hello World!", response.output);
         }
 
@@ -40,7 +40,7 @@ namespace AspNetCoreWebServiceTest.Controllers
         {
             HelloController controller = new HelloController();
             var response = controller.Post(inputValue).Value as Response;
-            Assert.Equal(expectedOutput, response.Output);
+            Assert.Equal(expectedOutput, response.output);
         }
     }
 }
